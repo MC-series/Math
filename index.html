@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>C-series</title>
-  <link rel="stylesheet" href="SdetailsC.css">
-  <link rel="stylesheet" href="series.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-  <script src="ListA.js" defer></script>
-  <script src="seriesSelector.js" defer></script>
-  <script src="SdetailsJ.js" defer></script>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;400;900&family=Space+Mono&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Google Sheet Data</title>
+	<link rel="stylesheet" href="index.css">
 </head>
 <body>
+	<main class="page">
+		<h1>Google Sheet Data</h1>
+		<p id="status">Loading data...</p>
+		<div class="table-wrapper">
+			<table id="data-table">
+				<thead></thead>
+				<tbody></tbody>
+			</table>
+		</div>
+	</main>
 
-  <div id="series-container"></div>
-
-  <div id="sd-app-root" class="hidden"></div>
+	<script src="index.js"></script>
 </body>
 </html>
