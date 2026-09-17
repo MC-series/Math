@@ -1,24 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Google Sheet Data</title>
-	<link rel="stylesheet" href="index.css">
-</head>
-<body>
-	<main class="page">
-		<h1>Google Sheet Data</h1>
-		<p id="status">Loading data...</p>
-		<section id="poster-gallery" class="poster-gallery" aria-label="Posters"></section>
-		<div class="table-wrapper">
-			<table id="data-table">
-				<thead></thead>
-				<tbody></tbody>
-			</table>
-		</div>
-	</main>
+:root {
+	color-scheme: light;
+	font-family: Georgia, "Times New Roman", serif;
+	color: #202322;
+	background: #e9e4dc;
+}
 
-	<script src="index.js"></script>
-</body>
-</html>
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-width: 320px;
+	background:
+		radial-gradient(circle at 10% 0%, rgb(255 255 255 / 70%), transparent 32rem),
+		#e9e4dc;
+}
+
+.page {
+	width: min(1440px, calc(100% - 40px));
+	margin: 40px auto 64px;
+	padding: clamp(24px, 4vw, 56px);
+	background: #f8f6f1;
+	border: 1px solid #d2cbc0;
+	box-shadow: 0 20px 60px rgb(62 54 44 / 12%);
+}
+
+h1 {
+	margin: 0;
+	color: #263b36;
+	font-size: clamp(32px, 5vw, 58px);
+	font-weight: 500;
+	letter-spacing: 0;
+}
+
+#status {
+	margin: 10px 0 36px;
+	color: #7b6c5c;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0;
+	text-transform: uppercase;
+}
+
+.poster-gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+	gap: 34px 24px;
+}
+
+.poster-card {
+	min-width: 0;
+	animation: appear 500ms ease both;
+}
+
+.poster-frame {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 360px;
+	padding: 12px;
+	background: #ddd6ca;
+	border: 1px solid #c8bfb2;
+	box-shadow: 0 8px 18px rgb(62 54 44 / 13%);
+}
+
+.cell-image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center;
+}
+
+.poster-card h2 {
+	margin: 14px 2px 0;
+	color: #263b36;
+	font-size: 21px;
+	font-weight: 600;
+	line-height: 1.2;
+	text-align: center;
+}
+
+.table-wrapper {
+	overflow-x: auto;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	font-family: Arial, sans-serif;
+	text-align: left;
+}
+
+th,
+td {
+	padding: 12px 14px;
+	border-bottom: 1px solid #d8d0c5;
+	white-space: nowrap;
+}
+
+th {
+	color: #f8f6f1;
+	background: #263b36;
+	font-weight: 700;
+}
+
+tr:nth-child(even) td {
+	background: #eeebe5;
+}
+
+@keyframes appear {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (max-width: 560px) {
+	.page {
+		width: calc(100% - 20px);
+		margin: 10px auto 28px;
+		padding: 22px 16px 34px;
+	}
+
+	.poster-gallery {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 24px 12px;
+	}
+
+	.poster-frame {
+		height: 270px;
+		padding: 8px;
+	}
+
+	.poster-card h2 {
+		font-size: 17px;
+	}
+}
